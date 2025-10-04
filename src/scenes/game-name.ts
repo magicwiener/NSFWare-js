@@ -25,19 +25,19 @@ export class GameName extends Scene {
             text: this.config.title,
             style: {
                 fill: this.config.textColor,
-                fontSize: 28,
+                fontSize: 38,
                 fontFamily: 'Impact',
             },
             anchor: 0.5
         });
         this.addChild(hint)
-        hint.position.set(CANVAS_WIDTH * 0.21, CANVAS_HEIGHT * 0.22)
+        hint.position.set(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2)
     }
 
     update(ticker: Ticker): void {
         getApp().renderer.background.color = this.config.bgColor;
         this.time += ticker.deltaMS;
-        if (this.time  > DURATION) {
+        if (this.time > DURATION) {
             getSceneManager().setScene(this.config.gameId)
         }
     }

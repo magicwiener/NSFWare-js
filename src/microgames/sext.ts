@@ -9,7 +9,6 @@ export class Sext extends Microgame {
 
     private time: number = 0
     private timerText: Text;
-    private time: number = 0
 
     constructor() {
         super("sext")
