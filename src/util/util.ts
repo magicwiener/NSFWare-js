@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js'
 
-export async function initSprite(path: string): Promise<void> {
+export async function initSprite(path: string): Promise<PIXI.Sprite> {
     return new Promise((resolve, reject) => {
         PIXI.Assets.load(path).then(() => {
             resolve(PIXI.Sprite.from(path))

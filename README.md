@@ -6,6 +6,27 @@ This version of his game is written in [pixijs](https://pixijs.com/)
 
 I've taken some liberties with certain minigames, be sure to check the original.
 
+Minigame progress:
+
+1. SEXT +
+2. RIDE +
+3. WATCH + 
+11. SWAP
+4. SYNC
+5. COME
+6. TICKLE
+7. PEG
+8. HOLD
+9. PUNISH
+10. SHARE
+12. FINGER
+13. PLEASE
+14. TEASE
+15. SPANK
+16. PEEP 
+
+TAKE A BREAK SCREEN?
+
 ## Notes on extracting sprites/audio
 
 The original is done in [adventure game studio](https://www.adventuregamestudio.co.uk/), i've figured that by using some exe scanner/digger software.

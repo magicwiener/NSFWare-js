@@ -74,7 +74,9 @@ export class Sext extends Microgame {
         getApp().renderer.background.color = '#EB4F99'
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
-        this.timerText.text = timeSec
+        if (this.timerText) {
+            this.timerText.text = (5 - timeSec)
+        }
         if (timeSec >= 5) {
             getSceneManager().lose();
         }

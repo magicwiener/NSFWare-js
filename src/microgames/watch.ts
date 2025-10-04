@@ -9,7 +9,6 @@ export class Watch extends Microgame {
 
     private time: number = 0
     private timerText: Text;
-    private time: number = 0
     private couple: Sprite
     private player: Sprite
     private animation: Sprite[] = []

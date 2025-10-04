@@ -15,11 +15,12 @@ import { LifeLostScene } from "./scenes/life-lost";
 import { Ride } from "./microgames/ride";
 import { Watch } from "./microgames/watch";
 import { GameName } from "./scenes/game-name";
+import { Swap } from "./microgames/swap";
 
 
 
 const GAUNTLET_ORDER = [
-    "watch", "sext", "ride",
+    "watch", "sext", "ride", "swap"
 ];
 
 export class SceneManager {
@@ -37,6 +38,7 @@ export class SceneManager {
         this.games.push(new Watch())
         this.games.push(new Sext())
         this.games.push(new Ride())
+        this.games.push(new Swap())
 
 
         // other screens
@@ -50,8 +52,8 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        this.startGame('sext')
-        // this.startGame('start')
+        this.startGame('swap')
+        // this.setScene('start')
     }
 
     setScene(name: string) {

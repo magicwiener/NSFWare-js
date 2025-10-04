@@ -8,7 +8,6 @@ import controls from "../controls";
 const MIN_TIME_BETWEEN_MS = 200;
 export class Ride extends Microgame {
 
-    private time: number = 0
     private lastInputTime: number = 0;
     private timerText: Text;
     private time: number = 0
@@ -77,7 +76,7 @@ export class Ride extends Microgame {
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {
-            this.timerText.text = this.counter//(5 - timeSec)
+            this.timerText.text = (5 - timeSec)
         }
 
         if (controls.state.ArrowUp || controls.state.ArrowDown) {
