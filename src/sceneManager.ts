@@ -50,7 +50,7 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        this.setScene('ride')
+        this.startGame('sext')
         // this.startGame('start')
     }
 

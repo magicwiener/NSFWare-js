@@ -22,7 +22,7 @@ export class GameName extends Scene {
 
     async init() {
         const hint = new Text({
-            text: this.config.title,
+            text: this.config.title.toUpperCase(),
             style: {
                 fill: this.config.textColor,
                 fontSize: 38,
