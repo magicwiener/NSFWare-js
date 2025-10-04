@@ -12,7 +12,9 @@ Minigame progress:
 2. RIDE +
 3. WATCH + 
 11. SWAP +
-8. HOLD
+8. HOLD +
+15. SPANK
+17. GAG 
 4. SYNC
 5. COME
 6. TICKLE
@@ -22,8 +24,8 @@ Minigame progress:
 12. FINGER
 13. PLEASE
 14. TEASE
-15. SPANK
 16. PEEP 
+
 
 TAKE A BREAK SCREEN?
 
