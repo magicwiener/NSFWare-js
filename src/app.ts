@@ -1,4 +1,5 @@
-import { Application, Ticker, Assets, Sprite } from "pixi.js";
+import  { Application, Ticker, Assets, Sprite, TexturePool } from "pixi.js";
+import * as PIXI from "pixi.js";
 import controls, { Controls } from "./controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./config";
 import { SceneManager } from "./sceneManager";
@@ -13,7 +14,7 @@ export interface InitResult {
 }
 
 export async function initApp(): Promise<InitResult> {
- 
+    TexturePool.textureOptions.scaleMode = 'nearest';
     const app = new Application();
     // create ticker
     const ticker = new Ticker()

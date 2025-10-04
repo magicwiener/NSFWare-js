@@ -11,12 +11,12 @@ Minigame progress:
 1. SEXT +
 2. RIDE +
 3. WATCH + 
-11. SWAP
+11. SWAP +
+8. HOLD
 4. SYNC
 5. COME
 6. TICKLE
 7. PEG
-8. HOLD
 9. PUNISH
 10. SHARE
 12. FINGER
