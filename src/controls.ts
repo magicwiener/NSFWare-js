@@ -18,6 +18,15 @@ export class Controls {
     init() {
         window.addEventListener('keyup', (evt) => this.onKeyUp(evt))
         window.addEventListener('keydown', (evt) => this.onKeyDown(evt))
+        const touchCountrols = document.querySelectorAll('.btn')
+        if (touchCountrols.length) {
+            // add touch 
+            touchCountrols.forEach(el => {
+                const key = el.attributes.getNamedItem('data-btn')?.value
+                el.addEventListener("touchstart", () => this.onKeyDown({ key } as KeyboardEvent));
+                el.addEventListener("touchend", () => this.onKeyUp({ key } as KeyboardEvent));
+            })
+        }
     }
 
     toggle(key: string, value: boolean = false) {

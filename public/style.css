@@ -13,3 +13,68 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.phone-controls {
+    display: hidden;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+    .phone-controls {
+        display: block;
+        position: absolute;
+        bottom: 40%;
+        width: 100vw;
+        height: 40vh;
+    }
+
+    canvas {
+        width: 100vw;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .btn {
+        width: 18vw;
+        height: 18vw;
+        border: 0;
+        position: absolute;
+    }
+
+    .btn-left {
+        background: url('assets/ui/dpad_element_west.png');
+        background-size: contain;
+        top: 50vw;
+        left: 5vw;
+    }
+
+    .btn-right {
+        background: url('assets/ui/dpad_element_east.png');
+        background-size: contain;
+        top: 50vw;
+        left: 32vw;
+    }
+
+    .btn-up {
+        background: url('assets/ui/dpad_element_north.png');
+        background-size: contain;
+        top: 35vw;
+        left: 18vw;
+    }
+
+    .btn-down {
+        background: url('assets/ui/dpad_element_south.png');
+        background-size: contain;
+        top: 65vw;
+        left: 18vw;
+    }
+
+    .btn-start {
+        background: url('assets/ui/button_square_wide.png');
+        background-size: contain;
+        color: rgba(255, 255, 255, 0.6);
+        top: 50vw;
+        right: 5vw;
+    }
+}

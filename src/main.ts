@@ -28,5 +28,22 @@ export function getTicker(): Ticker {
 
 (async () => {
   // Create a new application
-  _ = await initApp()
+  document.querySelector('#startGame')?.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  
+    if ((window as any)['isInitializing'] === true) {
+      return;
+    } else {
+      (window as any)['isInitializing'] = true
+    }
+  
+    // 1. hide consent screen
+    let consent = document.querySelector('#consent')
+    if (consent) {
+      consent.parentElement?.removeChild(consent)
+    }
+    _ = await initApp()
+  })
+
 })();

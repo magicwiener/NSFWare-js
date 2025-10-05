@@ -2,8 +2,9 @@ import  { Application, Ticker, TexturePool } from "pixi.js";
 import controls, { Controls } from "./controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./config";
 import { SceneManager } from "./sceneManager";
-import { Audio } from "./audio";
 import audio from "./audio";
+import { Audio } from "./audio";
+
 
 
 
@@ -16,8 +17,8 @@ export interface InitResult {
 }
 
 export async function initApp(): Promise<InitResult> {
-    TexturePool.textureOptions.scaleMode = 'nearest';
     audio.init();
+    TexturePool.textureOptions.scaleMode = 'nearest';
     const app = new Application();
     // create ticker
     const ticker = new Ticker()

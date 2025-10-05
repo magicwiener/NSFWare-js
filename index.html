@@ -7,11 +7,20 @@
         <link rel="stylesheet" href="/style.css">
         <title>PixiJS - Template</title>
         <base href="/NSFWare-js/">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <style>
-            p {
+            p.footer {
                 color: white;
                 position: absolute;
                 bottom: 10vh;
+                width: 100%;
+                text-align: center;
+            }
+
+            #consent {
+                color: white;
+                position: absolute;
+                top: 0;
                 width: 100%;
                 text-align: center;
             }
@@ -19,10 +28,22 @@
     </head>
 
     <body>
+        <div id="consent">
+            <!-- this whole screen is a workaround to make audio on phone work -->
+            <p>This game is for adults only. Press the button below to start</p>
+            <button id="startGame"> Yes I am an adult</button>
+        </div>
         <div id="app">
             <div id="pixi-container"></div>
         </div>
-        <p>Original game NSFWare <a target="_blank" href="https://pierrec.itch.io/nsfware"> can be purchased here</a> for as little as 1$, if you had fun playing this - please support the original creator </p>
+        <div class="phone-controls">
+            <button class="btn btn-up" data-btn="ArrowUp"></button>
+            <button class="btn btn-down" data-btn="ArrowDown"></button>
+            <button class="btn btn-left" data-btn="ArrowLeft"></button>
+            <button class="btn btn-right" data-btn="ArrowRight"></button>
+            <button class="btn btn-start" data-btn="Enter">ENTER</button>
+        </div>
+        <p class="footer">Original game NSFWare <a target="_blank" href="https://pierrec.itch.io/nsfware"> can be purchased here</a> for as little as 1$, if you had fun playing this - please support the original creator </p>
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>
