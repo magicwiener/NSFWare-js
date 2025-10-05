@@ -15,6 +15,9 @@ importers:
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.36.0
+      array-shuffle:
+        specifier: ^4.0.0
+        version: 4.0.0
       eslint:
         specifier: ^9.21.0
         version: 9.36.0
@@ -475,6 +478,10 @@ packages:
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  array-shuffle@4.0.0:
+    resolution: {integrity: sha512-C7U1jQYpMCCQcjhPNtngE3Fki2+wFTaPzc5K4jJPY9Wwce9aQp8BwAkgyMhG6WIQEaE1qnrtkT6XoYkatxXTSQ==}
+    engines: {node: '>=20'}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1304,6 +1311,8 @@ snapshots:
       color-convert: 2.0.1
 
   argparse@2.0.1: {}
+
+  array-shuffle@4.0.0: {}
 
   balanced-match@1.0.2: {}
 

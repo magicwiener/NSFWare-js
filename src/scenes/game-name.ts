@@ -25,7 +25,7 @@ export class GameName extends Scene {
             text: this.config.title.toUpperCase(),
             style: {
                 fill: this.config.textColor,
-                fontSize: 38,
+                fontSize: 80,
                 fontFamily: 'Impact',
             },
             anchor: 0.5

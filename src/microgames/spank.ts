@@ -26,6 +26,7 @@ export class Spank extends Microgame {
         this.spanking = false;
         this.spanks = 0;
         this.spankTime = 0
+        console.log(`${this.getConfig().gameId}`, this)
     }
 
     getConfig(): GameConfig {
@@ -56,7 +57,7 @@ export class Spank extends Microgame {
         this.timerText = new Text({
             text: '5',
             style: {
-                fill: '#6D57F6',
+                fill: '#EB4F99',
                 fontSize: 36,
             },
             anchor: 0.5

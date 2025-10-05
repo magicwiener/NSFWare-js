@@ -24,6 +24,7 @@ export class Hold extends Microgame {
         this.time = 0;
         this.holding= false;
         this.holdingTime = 0;
+        console.log(`${this.getConfig().gameId}`, this)
     }
 
     getConfig(): GameConfig {
@@ -66,7 +67,12 @@ export class Hold extends Microgame {
     animate(): void {
         if (this.holding) {
             this.player.texture = this.animation[1].texture
-        } else if (this.time > 3000 && !this.holding) {
+        } else if (this.holding && this.time - this.holdingTime > 1000) {
+            // animate rest of win state
+             const frameDuration = 1000 / 5;
+            let frame = Math.trunc(this.time / frameDuration) % 2;
+            this.player.texture = this.animation[frame].texture
+        }   else if (this.time > 3000 && !this.holding) {
             // play fail state
             const frameDuration = 1000 / 3;
             let frame = 2 + Math.trunc(this.time / frameDuration) % 5;
@@ -95,7 +101,7 @@ export class Hold extends Microgame {
             this.holdingTime = this.time;
         }
         
-        if (this.holding && this.time - this.holdingTime > 1000) {
+        if (this.holding && this.time - this.holdingTime > 2000) {
             controls.state.ArrowRight = false;
             getSceneManager().win()
         }

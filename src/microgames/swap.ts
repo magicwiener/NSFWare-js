@@ -41,6 +41,7 @@ export class Swap extends Microgame {
         while (this.indicatorSeed === this.seed) {
             this.indicatorSeed = Math.trunc(Math.random() * 5)
         }
+        console.log(`${this.getConfig().gameId}`, this)
     }
 
     animate() {

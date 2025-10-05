@@ -39,8 +39,9 @@ export class Sext extends Microgame {
         this.isClicking = false
         this.clickTime = 0;
         if (this.photo) {
-            this.photo.position.set(-CANVAS_WIDTH / 2. - CANVAS_HEIGHT / 2)
+            this.photo.position.set(-CANVAS_WIDTH / 3, -CANVAS_HEIGHT / 3)
         }
+        console.log(`${this.getConfig().gameId}`, this)
     }
 
     animate() {

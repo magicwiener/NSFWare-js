@@ -26,6 +26,7 @@ export class Ride extends Microgame {
         this.time = 0;
         this.lastInputTime = 0;
         this.counter = 0;
+        console.log(`${this.getConfig().gameId}`, this)
     }
     getConfig(): GameConfig {
         return {

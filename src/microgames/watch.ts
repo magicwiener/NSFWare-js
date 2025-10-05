@@ -26,6 +26,7 @@ export class Watch extends Microgame {
         this.turning = false;
         this.time = 0;
         this.turnStart = 0;
+        console.log(`${this.getConfig().gameId}`, this)
     }
 
     getConfig(): GameConfig {

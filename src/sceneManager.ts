@@ -5,7 +5,7 @@ import { QTE } from "./microgames/qte";
 import { Scene } from "./scene";
 import { StartScene } from "./scenes/start";
 import { IntroScene } from "./scenes/intro";
-import { YouHaveLostScene } from "./scenes/lost";
+import { GameOver, YouHaveLostScene } from "./scenes/game-over";
 import { YouHaveWonScene } from "./scenes/won";
 import { Catch } from "./microgames/catch";
 import { EndingScene } from "./scenes/ending";
@@ -18,10 +18,10 @@ import { GameName } from "./scenes/game-name";
 import { Swap } from "./microgames/swap";
 import { Hold } from "./microgames/hold";
 import { Spank } from "./microgames/spank";
+import {arrayToShuffled } from 'array-shuffle';
 
 
-
-const GAUNTLET_ORDER = [
+const GAMES_AVAILABLE = [
     "watch", "sext", "ride", "swap", "hold", "spank"
 ];
 
@@ -30,7 +30,9 @@ export class SceneManager {
     private games: Microgame[] = [];
     private activeScene?: Scene
     private lives = 3;
-    private gameOrder: string[] = [...GAUNTLET_ORDER]
+    private score = 0
+
+    private gameOrder: string[] = []
 
     constructor(
         private app: Application,
@@ -47,7 +49,7 @@ export class SceneManager {
 
         // other screens
         this.scenes.push(new StartScene())
-        this.scenes.push(new YouHaveLostScene())
+        this.scenes.push(new GameOver())
         this.scenes.push(new YouHaveWonScene())
         this.scenes.push(new IntroScene())
         this.scenes.push(new EndingScene())
@@ -56,8 +58,8 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        this.startGame('spank')
-        // this.setScene('start')
+        // this.startGame('spank')
+        this.setScene('start')
     }
 
     setScene(name: string) {
@@ -74,6 +76,7 @@ export class SceneManager {
 ;
         this.activeScene = newScene
         this.app.stage.addChild(newScene)
+        newScene.reset()
         this.ticker.start();
     }
 
@@ -89,14 +92,14 @@ export class SceneManager {
 
         this.activeScene = new GameName(config)
         this.app.stage.addChild(this.activeScene)
+        this.activeScene.reset()
 
         this.ticker.start()
     }
 
     startGameGauntlet(): void {
-        // Game gauntlet in the first iteration is just 3 games
-        // no dynamic difficulty
-        // no score
+        this.score = 0;
+        this.gameOrder = arrayToShuffled(GAMES_AVAILABLE)
         this.nextGame();
     }
 
@@ -105,7 +108,8 @@ export class SceneManager {
         if (nextGame) {
             this.startGame(nextGame!)
         } else {
-            this.setScene('ending')
+            this.gameOrder = arrayToShuffled(GAMES_AVAILABLE)
+            this.nextGame()
         }
 
     }
@@ -119,11 +123,8 @@ export class SceneManager {
     }
 
     win() {
-        if (this.gameOrder.length > 0) {
-            this.setScene('loading')
-        } else {
-            this.setScene('ending')
-        }
+        this.score+=1;
+        this.setScene('loading')
         this.activeScene?.reset();
     }
 
@@ -137,4 +138,7 @@ export class SceneManager {
         this.activeScene?.reset();
     }
 
+    get totalScore(): number {
+        return this.score;
+    }
 }

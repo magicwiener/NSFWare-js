@@ -13,12 +13,12 @@ Minigame progress:
 3. WATCH + 
 11. SWAP +
 8. HOLD +
-15. SPANK
+15. SPANK +
 17. GAG 
+7. PEG
 4. SYNC
 5. COME
 6. TICKLE
-7. PEG
 9. PUNISH
 10. SHARE
 12. FINGER
