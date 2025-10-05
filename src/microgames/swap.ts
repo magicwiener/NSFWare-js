@@ -46,6 +46,7 @@ export class Swap extends Microgame {
 
     animate() {
         const frameDuration = 1000 / 2;
+        this.indicator.texture = this.animation[12 + this.indicatorSeed].texture
         let frame = Math.trunc(this.time / frameDuration) % 2 + this.seed * 2;
         this.player.texture = this.animation[frame].texture
     }
@@ -94,6 +95,11 @@ export class Swap extends Microgame {
             if (this.seed === this.indicatorSeed) {
                 getSceneManager().win();
             } else {
+                console.log(
+                    this.getConfig().gameId,
+                    this.seed,
+                    this.indicatorSeed
+                )
                 getSceneManager().lose();
             }
 

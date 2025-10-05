@@ -58,8 +58,8 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        // this.startGame('spank')
-        this.setScene('start')
+        this.startGame('swap')
+        // this.setScene('start')
     }
 
     setScene(name: string) {
