@@ -19,6 +19,15 @@ body {
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+        /* iOS tap flash */
+        -webkit-touch-callout: none;
+        /* no touch menu */
+        user-select: none;
+        touch-action: manipulation;
+    }
+
     .phone-controls {
         display: block;
         position: absolute;
@@ -40,6 +49,7 @@ body {
         height: 18vw;
         border: 0;
         position: absolute;
+        outline: none;
     }
 
     .btn-left {

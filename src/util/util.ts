@@ -1,10 +1,13 @@
 import * as PIXI from 'pixi.js'
 
-const base = window.location.href.includes('localhost') ? '' : '/NSFWare-js/';
+const base = '';
+
 export async function initSprite(path: string): Promise<PIXI.Sprite> {
+    const url = base + path
+    console.log(`initSprite`, url)
     return new Promise((resolve) => {
-        PIXI.Assets.load(path).then(() => {
-            resolve(PIXI.Sprite.from(base + path))
+        PIXI.Assets.load(url).then(() => {
+            resolve(PIXI.Sprite.from(url))
         });
     })
 }
