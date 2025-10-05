@@ -25,6 +25,13 @@ body {
         bottom: 40%;
         width: 100vw;
         height: 40vh;
+
+        -webkit-tap-highlight-color: transparent;
+        /* iOS tap flash */
+        -webkit-touch-callout: none;
+        /* no touch menu */
+        user-select: none;
+        touch-action: manipulation;
     }
 
     canvas {
@@ -40,6 +47,7 @@ body {
         height: 18vw;
         border: 0;
         position: absolute;
+        outline: none;
     }
 
     .btn-left {
