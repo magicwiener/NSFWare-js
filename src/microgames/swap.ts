@@ -55,15 +55,15 @@ export class Swap extends Microgame {
         for (let i = 240; i <= 251; i++) {
             spriteURLS.push(i)
         }
-        spriteURLS = spriteURLS.map(i => `/assets/original/sprite000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite000${i}_32_640x400.png`)
         for (let i = 252; i <= 256; i++) {
-            spriteURLS.push(`/assets/original/sprite000${i}_32_92x48.png`)
+            spriteURLS.push(`assets/original/sprite000${i}_32_92x48.png`)
         }
         this.animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
 
         this.player = await initSprite(spriteURLS[this.seed * 2])
         
-        this.indicator = await initSprite(`/assets/original/sprite000${252 + this.indicatorSeed}_32_92x48.png`)
+        this.indicator = await initSprite(`assets/original/sprite000${252 + this.indicatorSeed}_32_92x48.png`)
         this.indicator.position.set(CANVAS_WIDTH * 0.8, CANVAS_HEIGHT * 0.8)
         this.addChild(this.player)
         this.addChild(this.indicator)

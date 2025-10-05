@@ -44,7 +44,7 @@ export class Ride extends Microgame {
         for (let i = 12; i <= 15; i++) {
             spriteURLS.push(i)
         }
-        spriteURLS = spriteURLS.map(i => `/assets/original/sprite0000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite0000${i}_32_640x400.png`)
 
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
         this.animation = animation;

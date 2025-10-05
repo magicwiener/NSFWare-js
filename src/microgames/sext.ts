@@ -63,9 +63,9 @@ export class Sext extends Microgame {
         });
         this.timerText.position.set(CANVAS_WIDTH * 0.1, CANVAS_HEIGHT * 0.9)
         this.addChild(this.timerText)
-        this.handIdle = await initSprite("/assets/original/sprite000279_32_640x400.png")
-        this.handClick = await initSprite("/assets/original/sprite000280_32_640x400.png")
-        this.photo = await initSprite("/assets/original/sprite000281_32_640x640.png")
+        this.handIdle = await initSprite("assets/original/sprite000279_32_640x400.png")
+        this.handClick = await initSprite("assets/original/sprite000280_32_640x400.png")
+        this.photo = await initSprite("assets/original/sprite000281_32_640x640.png")
         this.photo.position.set(-CANVAS_WIDTH / 3, -CANVAS_HEIGHT / 3)
         this.addChild(this.photo)
         this.addChild(this.handIdle)

@@ -27,7 +27,7 @@ export class Audio {
         Object.keys(SOUNDS).map(
             key => {
                 const name = SOUNDS[key]
-                const url = `/assets/audio/${name}.wav`
+                const url = `assets/audio/${name}.wav`
                 this.sounds[key] = new Howl({
                     src: [url]
                 });
@@ -38,7 +38,7 @@ export class Audio {
         Object.keys(LOOPS).map(
             key => {
                 const name = LOOPS[key]
-                const url = `/assets/audio/${name}.wav`
+                const url = `assets/audio/${name}.wav`
                 this.loops[key] = new Howl({
                     src: [url],
                     loop: true

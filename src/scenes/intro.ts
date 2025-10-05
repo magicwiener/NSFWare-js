@@ -17,11 +17,11 @@ export class IntroScene extends Scene {
 
     async init() {
         let animation = await Promise.all([
-            initSprite('/assets/original/sprite000335_32_640x400.png'),
-            initSprite('/assets/original/sprite000336_32_640x400.png')
+            initSprite('assets/original/sprite000335_32_640x400.png'),
+            initSprite('assets/original/sprite000336_32_640x400.png')
         ])
 
-        let background = await initSprite('/assets/original/sprite000335_32_640x400.png')
+        let background = await initSprite('assets/original/sprite000335_32_640x400.png')
         this.animation = animation;
         this.background = background;
         background.width = CANVAS_WIDTH

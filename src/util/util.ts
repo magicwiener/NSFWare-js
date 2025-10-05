@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js'
 
+const base = '/NSFWare-js/';
 export async function initSprite(path: string): Promise<PIXI.Sprite> {
     return new Promise((resolve) => {
         PIXI.Assets.load(path).then(() => {
-            resolve(PIXI.Sprite.from(path))
+            resolve(PIXI.Sprite.from(base + path))
         });
     })
 }

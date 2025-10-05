@@ -4,12 +4,20 @@
 
 This version of his game is written in [pixijs](https://pixijs.com/)
 
+Latest version can be played right here: [https://magicwiener.github.io/NSFWare-js/](https://magicwiener.github.io/NSFWare-js/) 
+
 I've taken some liberties with certain minigames, be sure to check the original.
 
 ## running locally
 
 `pnpm install`
 `pnpm start`
+
+## Planned scope:
+    - port original minigames
+    - add touch controls, phone and tablet layouts
+    - add "new" content that i've rotoscoped myself
+    - perhaps additional menus to play single game
 
 Minigame progress:
 

@@ -45,7 +45,7 @@ export class Spank extends Microgame {
         for (let i = 7; i <= 11; i++) {
             spriteURLS.push(`${i}`.length === 1 ? '0' + i : i)
         }
-        spriteURLS = spriteURLS.map(i => `/assets/original/sprite0000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite0000${i}_32_640x400.png`)
 
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
         this.animation = animation;

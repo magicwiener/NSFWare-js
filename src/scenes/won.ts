@@ -13,7 +13,7 @@ export class YouHaveWonScene extends Scene {
     }
 
     async init(): Promise<void> {
-        let background = await initSprite('/assets/background_clouds.png')
+        let background = await initSprite('assets/background_clouds.png')
         background.width = CANVAS_WIDTH
         background.height = CANVAS_HEIGHT
         background.position.set(0, 0)

@@ -29,7 +29,7 @@ export class LifeLostScene extends Scene {
         for (let i = 289; i <= 300; i++) {
             spriteURLS.push(i)
         }
-        spriteURLS = spriteURLS.map(i => `/assets/original/sprite000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite000${i}_32_640x400.png`)
 
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
 

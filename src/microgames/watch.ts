@@ -44,7 +44,7 @@ export class Watch extends Microgame {
         for (let i = 283; i <= 288; i++) {
             spriteURLS.push(i)
         }
-        spriteURLS = spriteURLS.map(i => `/assets/original/sprite000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite000${i}_32_640x400.png`)
 
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
         this.animation = animation;
