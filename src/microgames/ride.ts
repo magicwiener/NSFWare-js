@@ -4,6 +4,7 @@ import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { collides, initSprite } from "../util/util";
 import controls from "../controls";
+import audio from "../audio";
 
 const MIN_TIME_BETWEEN_MS = 200;
 export class Ride extends Microgame {
@@ -27,6 +28,7 @@ export class Ride extends Microgame {
         this.lastInputTime = 0;
         this.counter = 0;
         console.log(`${this.getConfig().gameId}`, this)
+        audio.play('RIDE')
     }
     getConfig(): GameConfig {
         return {

@@ -6,6 +6,11 @@ This version of his game is written in [pixijs](https://pixijs.com/)
 
 I've taken some liberties with certain minigames, be sure to check the original.
 
+## running locally
+
+`pnpm install`
+`pnpm start`
+
 Minigame progress:
 
 1. SEXT +

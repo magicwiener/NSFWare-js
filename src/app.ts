@@ -17,6 +17,7 @@ export interface InitResult {
 
 export async function initApp(): Promise<InitResult> {
     TexturePool.textureOptions.scaleMode = 'nearest';
+    audio.init();
     const app = new Application();
     // create ticker
     const ticker = new Ticker()

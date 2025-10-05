@@ -4,6 +4,7 @@ import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { collides, initSprite } from "../util/util";
 import controls from "../controls";
+import audio from "../audio";
 
 export class Hold extends Microgame {
 
@@ -25,6 +26,7 @@ export class Hold extends Microgame {
         this.holding= false;
         this.holdingTime = 0;
         console.log(`${this.getConfig().gameId}`, this)
+        audio.playRandomLoop()
     }
 
     getConfig(): GameConfig {

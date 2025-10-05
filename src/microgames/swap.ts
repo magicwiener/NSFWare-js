@@ -4,6 +4,7 @@ import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { collides, initSprite } from "../util/util";
 import controls from "../controls";
+import audio from "../audio";
 
 const SCROLL_SPEED = 200;
 const PERFECT_X = -7
@@ -42,6 +43,7 @@ export class Swap extends Microgame {
             this.indicatorSeed = Math.trunc(Math.random() * 5)
         }
         console.log(`${this.getConfig().gameId}`, this)
+        audio.playLoop('SWAP')
     }
 
     animate() {

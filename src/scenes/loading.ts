@@ -3,6 +3,7 @@ import { Scene } from "../scene";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
+import audio from "../audio";
 
 /**
  * This scene is show each time player wins
@@ -19,6 +20,7 @@ export class LoadingScene extends Scene {
 
     reset() {
         this.time = 0;
+        audio.play('LOADING')
     }
 
     async init() {

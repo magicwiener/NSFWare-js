@@ -3,6 +3,7 @@ import { Scene } from "../scene";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
+import audio from "../audio";
 
 /**
  * This scene is show each time player wins
@@ -18,8 +19,9 @@ export class LifeLostScene extends Scene {
         this.init();
     }
 
-    reset() {
+    reset(): void {
         this.time = 0;
+        audio.play('LOST')
     }
 
     async init() {

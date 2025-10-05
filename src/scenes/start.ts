@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import controls from "../controls";
 import { getApp, getSceneManager } from "../main";
+import audio from "../audio";
 
 export class StartScene extends Scene {
     private background: Sprite
@@ -13,6 +14,11 @@ export class StartScene extends Scene {
     constructor() {
         super("start")
         this.init();
+    }
+
+    reset(): void {
+        this.time = 0;
+        audio.playLoop('MENU')
     }
 
     async init() {

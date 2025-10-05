@@ -4,6 +4,7 @@ import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { collides, initSprite } from "../util/util";
 import controls from "../controls";
+import audio from "../audio";
 
 const SCROLL_SPEED = 200;
 const PERFECT_X = -7
@@ -42,6 +43,7 @@ export class Sext extends Microgame {
             this.photo.position.set(-CANVAS_WIDTH / 3, -CANVAS_HEIGHT / 3)
         }
         console.log(`${this.getConfig().gameId}`, this)
+        audio.playRandomLoop()
     }
 
     animate() {
@@ -100,6 +102,7 @@ export class Sext extends Microgame {
         if (!this.isClicking && Math.abs(this.photo.position.x - PERFECT_X) <= TOLERANCE && Math.abs(this.photo.position.y - PERFECT_Y) <= TOLERANCE) {
             this.isClicking = true;
             this.clickTime = this.time;
+            audio.play('CAMERA_CLICK')
         }
 
         if (this.isClicking && (Math.abs(this.time - this.clickTime) > 500)) {

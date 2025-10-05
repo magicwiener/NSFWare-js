@@ -4,6 +4,7 @@ import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { collides, initSprite } from "../util/util";
 import controls from "../controls";
+import audio from "../audio";
 
 export class Spank extends Microgame {
 
@@ -27,6 +28,7 @@ export class Spank extends Microgame {
         this.spanks = 0;
         this.spankTime = 0
         console.log(`${this.getConfig().gameId}`, this)
+        audio.playRandomLoop()
     }
 
     getConfig(): GameConfig {
@@ -81,6 +83,7 @@ export class Spank extends Microgame {
                 this.spanking = false;
                 controls.state.ArrowRight = false;
                 this.spankTime = 0
+                audio.play('SLAP')
             }
         }
 

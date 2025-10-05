@@ -4,6 +4,7 @@ import controls from "../controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
+import audio from "../audio";
 
 export class GameOver extends Scene {
     private label!: Text;
@@ -16,7 +17,10 @@ export class GameOver extends Scene {
         this.init()
     }
 
-
+    reset(): void {
+        this.time = 0;
+        audio.play('LOST')
+    }
     async init() {
         let spriteURLS = []
         for (let i = 289; i <= 300; i++) {

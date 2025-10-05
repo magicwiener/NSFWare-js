@@ -19,6 +19,7 @@ import { Swap } from "./microgames/swap";
 import { Hold } from "./microgames/hold";
 import { Spank } from "./microgames/spank";
 import {arrayToShuffled } from 'array-shuffle';
+import audio from "./audio";
 
 
 const GAMES_AVAILABLE = [
@@ -92,6 +93,7 @@ export class SceneManager {
 
         this.activeScene = new GameName(config)
         this.app.stage.addChild(this.activeScene)
+        audio.stopLoops();
         this.activeScene.reset()
 
         this.ticker.start()
@@ -124,11 +126,13 @@ export class SceneManager {
 
     win() {
         this.score+=1;
+        audio.stopLoops();
         this.setScene('loading')
         this.activeScene?.reset();
     }
 
     lose() {
+        audio.stopLoops();
         this.lives -= 1;
         if (this.lives > 0) {
             this.setScene('life-lost')
