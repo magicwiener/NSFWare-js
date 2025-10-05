@@ -1,8 +1,9 @@
 import  { Application, Ticker, Assets, Sprite, TexturePool } from "pixi.js";
-import * as PIXI from "pixi.js";
 import controls, { Controls } from "./controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./config";
 import { SceneManager } from "./sceneManager";
+import { Audio } from "./audio";
+import audio from "./audio";
 
 
 
@@ -10,7 +11,8 @@ export interface InitResult {
     app: Application,
     sceneManager: SceneManager,
     controls: Controls,
-    ticker: Ticker
+    ticker: Ticker,
+    audio: Audio
 }
 
 export async function initApp(): Promise<InitResult> {
@@ -19,7 +21,7 @@ export async function initApp(): Promise<InitResult> {
     // create ticker
     const ticker = new Ticker()
     // Initialize the application
-    await app.init({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, background: "#ac56f6" });
+    await app.init({width: CANVAS_WIDTH, height: CANVAS_HEIGHT, background: "#ac56f6" });
 
     const sceneManager = new SceneManager(app, ticker)
 
@@ -29,6 +31,6 @@ export async function initApp(): Promise<InitResult> {
 
 
     return {
-        app, sceneManager, controls, ticker
+        app, sceneManager, controls, ticker, audio
     }
 }
