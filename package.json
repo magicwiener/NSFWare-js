@@ -8,9 +8,11 @@
     "start": "npm run dev",
     "build": "tsc && vite build",
     "lint": "eslint .",
-    "dev": "vite"
+    "dev": "vite",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "pixi.js": "^8.8.1"
   },
   "devDependencies": {
