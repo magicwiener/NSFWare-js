@@ -19,19 +19,21 @@ body {
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
-    .phone-controls {
-        display: block;
-        position: absolute;
-        bottom: 40%;
-        width: 100vw;
-        height: 40vh;
-
+    * {
         -webkit-tap-highlight-color: transparent;
         /* iOS tap flash */
         -webkit-touch-callout: none;
         /* no touch menu */
         user-select: none;
         touch-action: manipulation;
+    }
+
+    .phone-controls {
+        display: block;
+        position: absolute;
+        bottom: 40%;
+        width: 100vw;
+        height: 40vh;
     }
 
     canvas {
