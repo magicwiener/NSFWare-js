@@ -7,7 +7,7 @@ import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
 
 export class GameOver extends Scene {
-    private label!: Text;
+    private textLabel!: Text;
     private background!: Sprite
     private animation: Sprite[] = []
     private time: number = 0
@@ -49,7 +49,7 @@ export class GameOver extends Scene {
         });
         myText.position.set(320, 200)
         this.addChild(myText)
-        this.label = myText;
+        this.textLabel = myText;
     }
 
     update(ticker: Ticker): void {
@@ -62,7 +62,7 @@ export class GameOver extends Scene {
         } else {
             this.background.texture = this.animation[this.animation.length - 1].texture;
         }
-        this.label.text = `GAME OVER\n SCORE: ${getSceneManager().totalScore}`
+        this.textLabel.text = `GAME OVER\n SCORE: ${getSceneManager().totalScore}`
         if (controls.state.Enter) {
             window.location.reload();
         }

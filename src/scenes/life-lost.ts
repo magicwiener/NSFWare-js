@@ -1,4 +1,4 @@
-import { Text, HTMLText, Sprite, Ticker } from "pixi.js";
+import { Text, Sprite, Ticker } from "pixi.js";
 import { Scene } from "../scene";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
@@ -9,10 +9,10 @@ import audio from "../audio";
  * This scene is show each time player wins
  */
 export class LifeLostScene extends Scene {
-    private background: Sprite
+    private background!: Sprite
     private animation: Sprite[] = []
     private time: number = 0
-    private lives: Text;
+    private lives!: Text;
 
     constructor() {
         super("life-lost")

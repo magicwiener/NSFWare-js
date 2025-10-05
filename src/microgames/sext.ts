@@ -1,8 +1,8 @@
-import { Sprite, Text, Texture, Ticker } from "pixi.js"
+import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
-import { collides, initSprite } from "../util/util";
+import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
 
@@ -14,10 +14,10 @@ const TOLERANCE = 20
 export class Sext extends Microgame {
 
     private time: number = 0
-    private timerText: Text;
-    private handIdle: Sprite
-    private handClick: Sprite
-    private photo: Sprite
+    private timerText!: Text;
+    private handIdle!: Sprite
+    private handClick!: Sprite
+    private photo!: Sprite
     private isClicking = false;
     private clickTime = 0;
 

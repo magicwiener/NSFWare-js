@@ -9,7 +9,7 @@ export class Controls {
         Enter: false,
         X: false,
         Z: false
-    }
+    } as { [key: string]: boolean }
 
     constructor() {
         this.init();
@@ -31,11 +31,11 @@ export class Controls {
         }
     }
 
-    onKeyUp(evt) {
+    onKeyUp(evt: KeyboardEvent) {
         this.toggle(evt.key, false)
     }
 
-    onKeyDown(evt) {
+    onKeyDown(evt: KeyboardEvent) {
         this.toggle(evt.key, true)
     }
 

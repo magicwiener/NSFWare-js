@@ -6,13 +6,13 @@ import { initSprite } from "../util/util";
 
 export class YouHaveWonScene extends Scene {
     private time: number = 0
-    private label: Text;
+    private textLabel!: Text;
     constructor() {
         super("won")
         this.init()
     }
 
-    async init(): void {
+    async init(): Promise<void> {
         let background = await initSprite('/assets/background_clouds.png')
         background.width = CANVAS_WIDTH
         background.height = CANVAS_HEIGHT
@@ -29,7 +29,7 @@ export class YouHaveWonScene extends Scene {
         });
         myText.position.set(320, 200)
         this.addChild(myText)
-        this.label = myText;
+        this.textLabel = myText;
     }
 
     reset() {
@@ -39,8 +39,8 @@ export class YouHaveWonScene extends Scene {
     update(ticker: Ticker): void {
         this.time += ticker.deltaMS
         const timeLeft = Math.trunc((3000 - this.time) / 1000)
-        if (this.label) {
-            this.label.text = `You did well!\n\nThe next game starts in\n\n ${timeLeft} \n\n`;
+        if (this.textLabel) {
+            this.textLabel.text = `You did well!\n\nThe next game starts in\n\n ${timeLeft} \n\n`;
             if (this.time > 3000) {
                 getSceneManager().nextGame()
             }

@@ -1,15 +1,11 @@
-import { Sprite, Text, Texture, Ticker } from "pixi.js"
+import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
-import { collides, initSprite } from "../util/util";
+import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
 
-const SCROLL_SPEED = 200;
-const PERFECT_X = -7
-const PERFECT_Y = -60
-const TOLERANCE = 20
 
 export class Swap extends Microgame {
 

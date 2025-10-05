@@ -1,7 +1,6 @@
-import { Text, HTMLText, Sprite, Ticker } from "pixi.js";
+import { Text, Ticker } from "pixi.js";
 import { Scene } from "../scene";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
-import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig } from "../microgame";
 

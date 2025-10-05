@@ -6,7 +6,7 @@ import { getSceneManager } from "../main";
 import controls from "../controls";
 
 export class IntroScene extends Scene {
-    private background: Sprite
+    private background!: Sprite
     private animation: Sprite[] = []
     private time: number = 0
 

@@ -1,13 +1,13 @@
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 
-const SOUNDS = {
+const SOUNDS: { [key: string]: string } = {
     LOADING: 'au000021',
     CAMERA_CLICK: 'au000023',
     LOST: 'au000003',
     SLAP: 'au000022',
 }
 
-const LOOPS = {
+const LOOPS: { [key: string]: string } = {
     MENU: 'au000016',
     RIDE: 'au000014',
     SWAP: 'au000008',
@@ -16,14 +16,12 @@ const LOOPS = {
     LOOP_3: 'au000007',
     LOOP_4: 'au000008',
     LOOP_5: 'au000009',
-
-
 }
 
 export class Audio {
 
-    private sounds = {};
-    private loops = {};
+    private sounds: { [key: string]: Howl } = {};
+    private loops: { [key: string]: Howl } = {};
 
     init(): void {
         Object.keys(SOUNDS).map(
@@ -71,12 +69,12 @@ export class Audio {
 
     playRandomLoop(): void {
         // never play menu music (1+)
-        const idx =1 + Math.trunc(Math.random() * Object.keys(this.loops).length - 1)
+        const idx = 1 + Math.trunc(Math.random() * Object.keys(this.loops).length - 1)
         this.playLoop(Object.keys(this.loops)[idx])
     }
 
     stopLoops(): void {
-       Object.keys(this.loops).forEach(loopName => this.loops[loopName].stop())
+        Object.keys(this.loops).forEach(loopName => this.loops[loopName].stop())
     }
 }
 

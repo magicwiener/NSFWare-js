@@ -1,21 +1,20 @@
-import { Sprite, Text, Texture, Ticker } from "pixi.js"
+import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
-import { collides, initSprite } from "../util/util";
+import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
 
 export class Watch extends Microgame {
 
     private time: number = 0
-    private timerText: Text;
-    private couple: Sprite
-    private player: Sprite
+    private timerText!: Text;
+    private couple!: Sprite
+    private player!: Sprite
     private animation: Sprite[] = []
     private turning = false; 
     private turnStart: number = 0;
-    private spriteURLS: string[] = [];
 
 
     constructor() {
@@ -46,7 +45,7 @@ export class Watch extends Microgame {
             spriteURLS.push(i)
         }
         spriteURLS = spriteURLS.map(i => `/assets/original/sprite000${i}_32_640x400.png`)
-        this.spriteURLS = spriteURLS;
+
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
         this.animation = animation;
         let player = await initSprite(spriteURLS[2])

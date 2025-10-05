@@ -1,4 +1,4 @@
-import  { Application, Ticker, Assets, Sprite, TexturePool } from "pixi.js";
+import  { Application, Ticker, TexturePool } from "pixi.js";
 import controls, { Controls } from "./controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./config";
 import { SceneManager } from "./sceneManager";

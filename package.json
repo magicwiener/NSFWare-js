@@ -6,7 +6,7 @@
   "description": "An attempt to recreate NSFWare by pierrec",
   "scripts": {
     "start": "npm run dev",
-    "build": "npm run lint && tsc && vite build",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "dev": "vite"
   },
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/howler": "^2.2.12",
     "array-shuffle": "^4.0.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.1.2",

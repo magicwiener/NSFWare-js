@@ -1,4 +1,4 @@
-import { Text, HTMLText, Ticker } from "pixi.js";
+import { Text, HTMLText, Ticker, Sprite } from "pixi.js";
 import { Scene } from "../scene";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
@@ -7,7 +7,7 @@ import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
 
 export class StartScene extends Scene {
-    private background: Sprite
+    private background!: Sprite
     private animation: Sprite[] = []
     private time: number = 0
 

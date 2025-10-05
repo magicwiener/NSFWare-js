@@ -1,7 +1,7 @@
 import { Container, Ticker } from "pixi.js";
 
 export class Scene extends Container {
-  constructor(protected sceneName: String) {
+  constructor(protected sceneName: string) {
     super();
   }
 
@@ -9,7 +9,7 @@ export class Scene extends Container {
     return this.sceneName
   }
 
-  update(ticker: Ticker): void {
+  update(_: Ticker): void {
     // noop, override this
   }
 

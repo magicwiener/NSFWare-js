@@ -1,8 +1,8 @@
-import { Sprite, Text, Texture, Ticker } from "pixi.js"
+import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
-import { collides, initSprite } from "../util/util";
+import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
 
@@ -10,9 +10,9 @@ const MIN_TIME_BETWEEN_MS = 200;
 export class Ride extends Microgame {
 
     private lastInputTime: number = 0;
-    private timerText: Text;
+    private timerText!: Text;
     private time: number = 0
-    private player: Sprite
+    private player!: Sprite
     private animation: Sprite[] = []
     private counter: number = 0;
     private allMoves: string = ''

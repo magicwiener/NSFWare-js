@@ -1,16 +1,16 @@
-import { Sprite, Text, Texture, Ticker } from "pixi.js"
+import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
-import { collides, initSprite } from "../util/util";
+import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
 
 export class Hold extends Microgame {
 
     private time: number = 0
-    private timerText: Text;
-    private player: Sprite
+    private timerText!: Text;
+    private player!: Sprite
     private animation: Sprite[] = []
     private holding = false;
     private holdingTime = 0;

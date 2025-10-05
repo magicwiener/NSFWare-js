@@ -1,14 +1,12 @@
 import { Application, Ticker } from "pixi.js";
 import { Microgame } from "./microgame";
-import { QTE } from "./microgames/qte";
-// import { Runner } from "./microgames/sext";
+
 import { Scene } from "./scene";
 import { StartScene } from "./scenes/start";
 import { IntroScene } from "./scenes/intro";
-import { GameOver, YouHaveLostScene } from "./scenes/game-over";
+import { GameOver } from "./scenes/game-over";
 import { YouHaveWonScene } from "./scenes/won";
-import { Catch } from "./microgames/catch";
-import { EndingScene } from "./scenes/ending";
+
 import { LoadingScene } from "./scenes/loading";
 import { Sext } from "./microgames/sext";
 import { LifeLostScene } from "./scenes/life-lost";
@@ -53,7 +51,6 @@ export class SceneManager {
         this.scenes.push(new GameOver())
         this.scenes.push(new YouHaveWonScene())
         this.scenes.push(new IntroScene())
-        this.scenes.push(new EndingScene())
         this.scenes.push(new LoadingScene())
         this.scenes.push(new LifeLostScene())
 
@@ -73,7 +70,7 @@ export class SceneManager {
         if (!newScene) {
             throw new Error(`Cant find scene=${name}`)
         }
-        this.app.stage.removeChild(this.activeScene)
+        this.app.stage.removeChild(this.activeScene!)
 ;
         this.activeScene = newScene
         this.app.stage.addChild(newScene)
@@ -86,7 +83,7 @@ export class SceneManager {
         if (!game) {
             throw new Error(`Cant find game=${gameName}`)
         }
-        this.app.stage.removeChild(this.activeScene)
+        this.app.stage.removeChild(this.activeScene!)
         this.ticker.stop()
 
         const config = game.getConfig()
