@@ -28,8 +28,7 @@ Minigame progress:
 8. HOLD +
 15. SPANK +
 17. GAG +
-12. FINGER
-7. PEG
+12. FINGER+
 7. PEG
 4. SYNC
 5. COME
