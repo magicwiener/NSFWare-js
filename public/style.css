@@ -3,6 +3,7 @@ body {
     padding: 0;
     color: rgba(255, 255, 255, 0.87);
     background-color: #6D57F6;
+    overflow: hidden;
 }
 
 #app {
@@ -15,7 +16,7 @@ body {
 }
 
 .phone-controls {
-    display: hidden;
+    display: none;
 }
 
 @media (max-width: 600px) and (orientation: portrait) {

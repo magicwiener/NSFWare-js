@@ -21,10 +21,12 @@ import audio from "./audio";
 import { Gag } from "./microgames/gag";
 import { Finger } from "./microgames/finger";
 import { Peg } from "./microgames/peg";
+import { Flex } from "./microgames/flex";
 
 
 const GAMES_AVAILABLE = [
-    "watch", "sext", "ride", "swap", "hold", "spank", "gag", "finger", "peg"
+    "watch", "sext", "ride", "swap", "hold",
+    "spank", "gag", "finger", "peg", "flex",
 ];
 
 export class SceneManager {
@@ -50,6 +52,7 @@ export class SceneManager {
         this.games.push(new Gag())
         this.games.push(new Finger())
         this.games.push(new Peg())
+        this.games.push(new Flex())
 
 
         // other screens
@@ -62,7 +65,7 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        // this.startGame('peg')
+        // this.startGame('flex')
         this.setScene('start')
     }
 
