@@ -5,6 +5,7 @@ import { GameConfig, Microgame } from "../microgame";
 import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 
 export class Swap extends Microgame {
@@ -83,7 +84,7 @@ export class Swap extends Microgame {
 
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = '#F7D64E'
+        getApp().renderer.background.color = COLORS.YELLOW,
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {

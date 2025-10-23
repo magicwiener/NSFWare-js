@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 /**
  * This scene is show each time player wins
@@ -42,7 +43,7 @@ export class LoadingScene extends Scene {
     }
 
     update(ticker: Ticker): void {
-        getApp().renderer.background.color = '#F7D64E'
+        getApp().renderer.background.color = COLORS.YELLOW
         this.time += ticker.deltaMS;
         const animationFrame = Math.ceil(this.time / 120) % this.animation.length
         if (this.background) {

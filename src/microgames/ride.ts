@@ -5,6 +5,7 @@ import { GameConfig, Microgame } from "../microgame";
 import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 const MIN_TIME_BETWEEN_MS = 200;
 export class Ride extends Microgame {
@@ -33,8 +34,8 @@ export class Ride extends Microgame {
     getConfig(): GameConfig {
         return {
             title: "Ride",
-            bgColor: '#6D57F6',
-            textColor: '#59C3F9',
+            bgColor: COLORS.PURPLE,
+            textColor: COLORS.BLUE,
             gameId: this.name
         }
     }
@@ -75,7 +76,7 @@ export class Ride extends Microgame {
     }
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = '#59C3F9'
+        getApp().renderer.background.color = COLORS.BLUE
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {

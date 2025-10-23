@@ -27,6 +27,7 @@ Minigame progress:
 11. SWAP +
 8. HOLD +
 15. SPANK +
+7. PEG
 17. GAG 
 7. PEG
 4. SYNC

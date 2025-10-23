@@ -18,6 +18,7 @@ import { Hold } from "./microgames/hold";
 import { Spank } from "./microgames/spank";
 import {arrayToShuffled } from 'array-shuffle';
 import audio from "./audio";
+import { Gag } from "./microgames/gag";
 
 
 const GAMES_AVAILABLE = [
@@ -44,6 +45,7 @@ export class SceneManager {
         this.games.push(new Swap())
         this.games.push(new Hold())
         this.games.push(new Spank())
+        this.games.push(new Gag())
 
 
         // other screens
@@ -56,7 +58,7 @@ export class SceneManager {
 
         ticker.add((t) => this.update(t))
 
-        // this.startGame('swap')
+        // this.startGame('gag')
         this.setScene('start')
     }
 

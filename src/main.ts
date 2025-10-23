@@ -44,6 +44,7 @@ export function getTicker(): Ticker {
       consent.parentElement?.removeChild(consent)
     }
     _ = await initApp()
-  })
+  });
+  (document.querySelector('#startGame') as HTMLElement)?.focus();
 
 })();

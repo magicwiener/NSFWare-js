@@ -5,6 +5,7 @@ import { GameConfig, Microgame } from "../microgame";
 import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 export class Spank extends Microgame {
 
@@ -34,8 +35,8 @@ export class Spank extends Microgame {
     getConfig(): GameConfig {
         return {
             title: "Spank",
-            bgColor: '#6D57F6',
-            textColor: '#59C3F9',
+            bgColor: COLORS.DARK_BLUE,
+            textColor: COLORS.BLUE,
             gameId: this.name
         }
     }
@@ -91,7 +92,7 @@ export class Spank extends Microgame {
 
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = '#6c57f6'
+        getApp().renderer.background.color = COLORS.DARK_BLUE
         this.animate();
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)

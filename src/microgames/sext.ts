@@ -5,6 +5,7 @@ import { GameConfig, Microgame } from "../microgame";
 import { initSprite } from "../util/util";
 import controls from "../controls";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 const SCROLL_SPEED = 200;
 const PERFECT_X = -7
@@ -74,7 +75,7 @@ export class Sext extends Microgame {
 
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = '#EB4F99'
+        getApp().renderer.background.color = COLORS.RED
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {

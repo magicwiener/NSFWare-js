@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 /**
  * This scene is show each time player wins
@@ -56,7 +57,7 @@ export class LifeLostScene extends Scene {
     }
 
     update(ticker: Ticker): void {
-        getApp().renderer.background.color = '#ac56f6'
+        getApp().renderer.background.color = COLORS.PURPLE
         this.time += ticker.deltaMS;
         if (this.lives) {
             this.lives.text = `LIVES: ${getSceneManager().getLives()}`

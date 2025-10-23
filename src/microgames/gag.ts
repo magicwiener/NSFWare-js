@@ -7,34 +7,30 @@ import controls from "../controls";
 import audio from "../audio";
 import { COLORS } from "../constants";
 
-export class Watch extends Microgame {
+export class Gag extends Microgame {
 
     private time: number = 0
     private timerText!: Text;
-    private couple!: Sprite
     private player!: Sprite
     private animation: Sprite[] = []
-    private turning = false; 
-    private turnStart: number = 0;
+    private downCounter = 0;
 
 
     constructor() {
-        super("watch")
+        super("gag")
         this.start()
     }
 
     reset() {
-        this.turning = false;
         this.time = 0;
-        this.turnStart = 0;
-        console.log(`${this.getConfig().gameId}`, this)
+        this.downCounter = 0;
         audio.playRandomLoop()
     }
 
     getConfig(): GameConfig {
         return {
-            title: "Watch",
-            bgColor: COLORS.PURPLE,
+            title: "Gag",
+            bgColor: COLORS.DARK_BLUE,
             textColor: COLORS.BLUE,
             gameId: this.name
         }
@@ -42,30 +38,24 @@ export class Watch extends Microgame {
 
     async start() {
         let spriteURLS = []
-        for (let i = 283; i <= 288; i++) {
+        for (let i = 1; i <= 6; i++) {
             spriteURLS.push(i)
         }
-        spriteURLS = spriteURLS.map(i => `assets/original/sprite000${i}_32_640x400.png`)
+        spriteURLS = spriteURLS.map(i => `assets/original/sprite00000${i}_32_640x400.png`)
 
         let animation = await Promise.all(spriteURLS.map(url => initSprite(url)))
         this.animation = animation;
-        let player = await initSprite(spriteURLS[2])
+        let player = await initSprite(spriteURLS[0])
 
         this.player = player;
 
         player.position.set(0, 0)
         this.addChild(player)
-        let couple = await initSprite(spriteURLS[4])
-
-        this.couple = couple;
-        couple.position.set(0, 0)
-        this.addChild(couple)
-
 
         this.timerText = new Text({
             text: '5',
             style: {
-                fill: '#6D57F6',
+                fill: COLORS.BLUE,
                 fontSize: 36,
             },
             anchor: 0.5
@@ -75,42 +65,39 @@ export class Watch extends Microgame {
     }
 
     animate(): void {
-        if (this.animation?.length) {
-            const coupleFrame = Math.trunc(this.time / 150) % 3
-            this.couple.texture = this.animation[3 + coupleFrame].texture
-            if (this.turning) {
-                const elapsed = this.time - this.turnStart;
-                const frameDuration = 1000 / 3;
-                let frame = 2 - Math.floor(elapsed / frameDuration);
-                if (frame < 0) {
-                    frame = 0
-                }
-                this.player.texture = this.animation[frame].texture
-            }
+        let idx = Math.trunc(this.downCounter / 2) || 0;
+        if (idx > 5) {
+           const trigger = 12; // idx crosses 5
+           const loopIndex = (this.downCounter - trigger) % 3;
+            idx = 4 + (loopIndex + 3) % 3 - 1;
         }
+
+        this.player.texture = this.animation[idx].texture
     }
 
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = COLORS.BLUE
+        getApp().renderer.background.color = COLORS.PURPLE
         this.animate();
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {
             this.timerText.text = (5 - timeSec)
         }
-        if (controls.state.ArrowRight) {
-            this.turning = true
-            this.turnStart = this.time;
+        
+        if (this.downCounter > 20 && timeSec >= 5) {
+            getSceneManager().win();
+        } else if (timeSec >= 5) {
+            getSceneManager().lose();
         }
 
-        if (timeSec >= 5) {
-            getSceneManager().win();
+        if (controls.state.ArrowDown === true) {
+            this.downCounter += 1;
+            controls.state.ArrowDown = false;
         }
-        if (this.turning && this.time - this.turnStart > 1000) {
-            controls.state.ArrowRight = false;
-            getSceneManager().lose()
-        }
+
+       
+        
     }
 
 

@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getSceneManager } from "../main";
 import controls from "../controls";
+import { COLORS } from "../constants";
 
 export class IntroScene extends Scene {
     private background!: Sprite
@@ -35,7 +36,7 @@ export class IntroScene extends Scene {
                 fontSize: 48,
                 fill: '#ffffff',
                 tagStyles: {
-                    red: { fill: '#58C1F7' },
+                    red: { fill: COLORS.BLUE },
                 },
             },
         });

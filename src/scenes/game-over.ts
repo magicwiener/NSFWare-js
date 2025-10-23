@@ -5,6 +5,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
 import { initSprite } from "../util/util";
 import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 export class GameOver extends Scene {
     private textLabel!: Text;
@@ -53,7 +54,7 @@ export class GameOver extends Scene {
     }
 
     update(ticker: Ticker): void {
-        getApp().renderer.background.color = '#ac56f6'
+        getApp().renderer.background.color = COLORS.PURPLE
         this.time += ticker.deltaMS;
         const frameDuration = 120;
         const animationFrame = Math.ceil(this.time / 120) % this.animation.length

@@ -5,6 +5,7 @@ import { initSprite } from "../util/util";
 import controls from "../controls";
 import { getApp, getSceneManager } from "../main";
 import audio from "../audio";
+import { COLORS } from "../constants";
 
 export class StartScene extends Scene {
     private background!: Sprite
@@ -76,7 +77,7 @@ export class StartScene extends Scene {
     }
 
     update(ticker: Ticker): void {
-        getApp().renderer.background.color = '#ac56f6'
+        getApp().renderer.background.color = COLORS.PURPLE
         this.time += ticker.deltaMS;
         const animationFrame = Math.ceil(this.time / 500) % 2
         if (this.background) {
