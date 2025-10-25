@@ -20,6 +20,7 @@ export class StartScene extends Scene {
     reset(): void {
         this.time = 0;
         audio.playLoop('MENU')
+        controls.state.Enter = false;
     }
 
     async init() {
@@ -38,7 +39,7 @@ export class StartScene extends Scene {
         const logo = new HTMLText({
             text: '<red>NSFWare-js</red>',
             style: {
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
                 fontSize: 48,
                 fill: '#ffffff',
                 tagStyles: {
@@ -52,11 +53,11 @@ export class StartScene extends Scene {
         this.addChild(logo)
 
         const version = new Text({
-            text: 'version 0.1',
+            text: 'version 0.2',
             style: {
                 fill: '#333',
                 fontSize: 28,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
             anchor: 0.5
         });
@@ -68,12 +69,12 @@ export class StartScene extends Scene {
             style: {
                 fill: '#333',
                 fontSize: 28,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
             anchor: 0.5
         });
         this.addChild(hint)
-        hint.position.set(CANVAS_WIDTH * 0.21, CANVAS_HEIGHT * 0.22)
+        hint.position.set(CANVAS_WIDTH * 0.24, CANVAS_HEIGHT * 0.22)
     }
 
     update(ticker: Ticker): void {

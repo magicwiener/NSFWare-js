@@ -47,7 +47,7 @@ export class LifeLostScene extends Scene {
             style: {
                 fill: '#333',
                 fontSize: 28,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
             anchor: 0.5
         });

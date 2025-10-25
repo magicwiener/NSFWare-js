@@ -1,8 +1,14 @@
-import { Application } from "../node_modules/pixi.js/lib/app/Application";
-import { Ticker } from "../node_modules/pixi.js/lib/ticker/Ticker";
+import { Application, Ticker } from "pixi.js";
 import { initApp, InitResult } from "./app";
 import { Controls } from "./controls";
 import { SceneManager } from "./sceneManager";
+import * as PIXI from "pixi.js"
+
+// load font
+PIXI.Assets.addBundle('fonts', {
+  ARCADECLASSIC: 'assets/ARCADECLASSIC.TTF',
+});
+PIXI.Assets.loadBundle('fonts')
 
 let _: InitResult
 

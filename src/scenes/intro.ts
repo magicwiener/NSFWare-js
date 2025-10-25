@@ -32,7 +32,7 @@ export class IntroScene extends Scene {
         const logo = new HTMLText({
             text: '<red>How to play</red>',
             style: {
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
                 fontSize: 48,
                 fill: '#ffffff',
                 tagStyles: {
@@ -50,7 +50,7 @@ export class IntroScene extends Scene {
             style: {
                 fill: '#333',
                 fontSize: 28,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
             anchor: 0.5
         });
@@ -62,7 +62,7 @@ export class IntroScene extends Scene {
             style: {
                 fill: '#333',
                 fontSize: 28,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
         });
         this.addChild(hint)

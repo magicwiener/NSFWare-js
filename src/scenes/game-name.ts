@@ -25,7 +25,7 @@ export class GameName extends Scene {
             style: {
                 fill: this.config.textColor,
                 fontSize: 80,
-                fontFamily: 'Impact',
+                fontFamily: 'ARCADECLASSIC',
             },
             anchor: 0.5
         });
