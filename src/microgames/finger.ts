@@ -62,8 +62,9 @@ export class Finger extends Microgame {
         this.timerText = new Text({
             text: '5',
             style: {
-                fill: COLORS.BLUE,
-                fontSize: 36,
+                fill: COLORS.PURPLE,
+                fontSize: 64,
+                fontFamily: 'ARCADECLASSIC'
             },
             anchor: 0.5
         });

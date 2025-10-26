@@ -57,8 +57,9 @@ export class Sext extends Microgame {
         this.timerText = new Text({
             text: '5',
             style: {
-                fill: '#6D57F6',
-                fontSize: 36,
+                fill: COLORS.PURPLE,
+                fontSize: 64,
+                fontFamily: 'ARCADECLASSIC'
             },
             anchor: 0.5
         });

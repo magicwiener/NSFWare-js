@@ -63,7 +63,8 @@ export class Flex extends Microgame {
             text: '5',
             style: {
                 fill: COLORS.BLUE,
-                fontSize: 36,
+                fontSize: 64,
+                fontFamily: 'ARCADECLASSIC'
             },
             anchor: 0.5
         });

@@ -60,8 +60,9 @@ export class Spank extends Microgame {
         this.timerText = new Text({
             text: '5',
             style: {
-                fill: '#EB4F99',
-                fontSize: 36,
+                fill: COLORS.RED,
+                fontSize: 64,
+                fontFamily: 'ARCADECLASSIC'
             },
             anchor: 0.5
         });

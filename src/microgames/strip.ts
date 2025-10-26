@@ -1,6 +1,6 @@
 import { Sprite, Text, Ticker } from "pixi.js"
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../config";
-import { getApp } from "../main";
+import { getApp, getSceneManager } from "../main";
 import { GameConfig, Microgame } from "../microgame";
 import { initSprite } from "../util/util";
 import controls from "../controls";
@@ -13,6 +13,7 @@ export class Strip extends Microgame {
     private player!: Sprite
     private animation: Sprite[] = []
     private counter: number = 0;
+    private lastCounterPos: number = 0;
     private undressTime: number = 0;
     private undressing: boolean = false;
 
@@ -25,9 +26,9 @@ export class Strip extends Microgame {
     reset() {
         this.time = 0;
         this.counter = 0;
+        this.lastCounterPos = 0;
         this.undressTime = 0;
         this.undressing = false;
-        console.log(`${this.getConfig().gameId}`, this)
     }
 
     getConfig(): GameConfig {
@@ -59,11 +60,12 @@ export class Strip extends Microgame {
             text: '5',
             style: {
                 fill: COLORS.PURPLE,
-                fontSize: 36,
+                fontSize: 64,
+                fontFamily: 'ARCADECLASSIC'
             },
             anchor: 0.5
         });
-        this.timerText.position.set(CANVAS_WIDTH * 0.1, CANVAS_HEIGHT * 0.9)
+        this.timerText.position.set(CANVAS_WIDTH * 0.1, CANVAS_HEIGHT * 0.85)
         this.addChild(this.timerText)
     }
 
@@ -72,20 +74,16 @@ export class Strip extends Microgame {
         if (!this.player && !this.animation) {
             return;
         }
-        const frameDuration = 1000 / 2;
+        const frameDuration = 1000 / 4;
         const totalFrames = this.animation.length;
-        if (this.undressing) {
-            this.counter = 1 + Math.trunc((this.time - this.undressTime) / frameDuration) % (totalFrames - 1);
-            if (this.counter >= totalFrames) {
-                this.counter = totalFrames - 1
-            }
+        const direction = this.undressing ? 'down' : 'up'
+
+        if (direction === 'down') {
+            const nextFrame = this.lastCounterPos + Math.trunc((this.time - this.undressTime) / frameDuration) % totalFrames
+            this.counter = Math.min(nextFrame, this.animation.length);
         } else if (this.counter > 0) {
-            // go back
-            console.log('back ', (this.time - this.undressTime), Math.trunc((this.time - this.undressTime) / frameDuration ))
-            this.counter = this.counter - Math.trunc((this.time - this.undressTime) / frameDuration);
-            if (this.counter <= 0) {
-                this.counter = 0;
-            }
+            const nextFrame = this.lastCounterPos - Math.trunc((this.time - this.undressTime) / frameDuration);
+            this.counter = Math.max(nextFrame, 0)
         }
         this.player.texture = this.animation[this.counter].texture
     }
@@ -95,19 +93,24 @@ export class Strip extends Microgame {
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {
-            this.timerText.text = this.undressing //(5 - timeSec)
+            this.timerText.text = this.counter//(5 - timeSec)
         }
         if (controls.state.ArrowDown && !this.undressing) {
             this.undressing = true;
             this.undressTime = this.time;
+            this.lastCounterPos = this.counter;
         } else if (controls.state.ArrowDown === false && this.undressing) {
             this.undressing = false;
             this.undressTime = this.time;
+            this.lastCounterPos = this.counter
         }
 
         this.animate();
+        if (this.counter === 15) {
+            getSceneManager().win()
+        }
         if (timeSec >= 5) {
-            // getSceneManager().lose();
+            getSceneManager().lose();
         }
 
     }
