@@ -31,7 +31,7 @@ Minigame progress:
 8. FINGER+
 9. PEG +
 10. FLEX+
-11. STRIP | TEASE
+11. STRIP | TEASE + 
 12. SYNC
 13. COME
 14. TICKLE

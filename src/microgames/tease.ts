@@ -7,7 +7,7 @@ import controls from "../controls";
 import { COLORS } from "../constants";
 import audio from "../audio";
 
-export class Strip extends Microgame {
+export class Tease extends Microgame {
 
     private timerText!: Text;
     private time: number = 0
@@ -20,7 +20,7 @@ export class Strip extends Microgame {
 
 
     constructor() {
-        super("strip")
+        super("tease")
         this.start()
     }
 
@@ -35,8 +35,8 @@ export class Strip extends Microgame {
 
     getConfig(): GameConfig {
         return {
-            title: "Strip",
-            bgColor: COLORS.BLUE,
+            title: "Tease",
+            bgColor: COLORS.PURPLE,
             textColor: COLORS.YELLOW,
             gameId: this.name
         }
@@ -91,7 +91,7 @@ export class Strip extends Microgame {
     }
 
     update(ticker: Ticker) {
-        getApp().renderer.background.color = COLORS.BLUE
+        getApp().renderer.background.color = COLORS.PURPLE
         this.time += ticker.deltaMS;
         const timeSec = Math.trunc(this.time / 1000)
         if (this.timerText) {
@@ -108,10 +108,9 @@ export class Strip extends Microgame {
         }
 
         this.animate();
-        if (this.counter === 15) {
+        if (timeSec >= 5 && (this.counter >= 2 && this.counter <= 8)) {
             getSceneManager().win()
-        }
-        if (timeSec >= 5) {
+        } else if (timeSec >= 5) {
             getSceneManager().lose();
         }
 

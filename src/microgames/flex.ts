@@ -26,7 +26,7 @@ export class Flex extends Microgame {
     reset() {
         this.time = 0;
         this.keySequence = arrayToShuffled([1, 2, 3, 4]).join('')
-        audio.playRandomLoop()
+        audio.playRandomLoop();
         this.renderSequence();
     }
 
@@ -74,6 +74,7 @@ export class Flex extends Microgame {
     }
 
     async renderSequence(): Promise<void> {
+        this.keys.forEach(k => {this.removeChild(k)})
         // draw sequence 
         this.keys = [];
         this.keySequence.split('').forEach(async (el, idx) => {
